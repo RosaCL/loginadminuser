@@ -81,12 +81,4 @@ section{
     border: var(--border);
 }
 
-#menu-bar{
-    color: var(--letra);
-    border:.1rem solid var(--branco);
-    border-radius: .5rem;
-    font-size: 3rem;
-    padding: .5rem 1.2rem;
-    cursor: pointer;
-    display: none;
-}
+

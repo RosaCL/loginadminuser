@@ -1,5 +1,5 @@
 <?php
-include("/laragon/www/conexaolocal/api/config.php");
+include("/laragon/www/loginadminuser/api/config.php");
 
 ?>
 

@@ -1,5 +1,6 @@
 <?php
-include("/laragon/www/conexaolocal/api/config.php");
+include("/laragon/www/loginadminuser/api/config.php");
+include("/laragon/www/loginadminuser/api/logic.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +20,18 @@ include("/laragon/www/conexaolocal/api/config.php");
         <div class="form-container">
             <form action="" method="post">
                 <h3>Cadastre-se agora</h3>
+                <?php
+                if(isset($error)){
+                    foreach($error as $error){
+                        echo '<span class="error_msg">' .$error. '</span>';
+                    };
+                };
+                ?>
                 <input type="text" name="nome" placeholder="Digite seu nome completo" required>
                 <input type="email" name="email" placeholder="Digite seu e-mail" required>
                 <input type="text" name="username" placeholder="Digite seu username" required>
                 <input type="password" name="senha" placeholder="Digite sua senha" required>
-                <input type="cpassword" name="senha" placeholder="Confirme sua senha" required>
+                <input type="password" name="csenha" placeholder="Confirme sua senha" required>
                 <select name="user-type" id="">
                     <option value="user">USER</option>
                     <option value="admin">ADMIN</option>

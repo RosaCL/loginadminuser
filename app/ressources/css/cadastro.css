@@ -41,3 +41,11 @@
 .form-container form p a{
     color: var(--rosa);
 }
+.form-container form .error-msg{
+    margin: 10px 0;
+    display: block;
+    background: var(--rosa);
+    color: var(--branco);
+    border-radius: 5px;
+    font-size: 20px;
+}
