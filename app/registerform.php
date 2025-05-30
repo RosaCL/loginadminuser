@@ -17,8 +17,8 @@ include("/laragon/www/loginadminuser/api/logic.php");
 </head>
 
 <body>
-        <div class="form-container">
-            <form action="" method="post">
+<div class="form-container">
+                <form action="" method="post">
                 <h3>Cadastre-se agora</h3>
                 <?php
                 if(isset($error)){
@@ -39,9 +39,7 @@ include("/laragon/www/loginadminuser/api/logic.php");
                 <input type="submit" name="submit" value="Cadastre agora" class="btn">
                 <p>Já tem uma conta? <a href="login.php">Faça seu login</a></p>
             </form>
-        </div>
-
-
+</div>
 <footer class="footer">
     <a target="_blank" href="https://github.com/RosaCL"><img src="./ressources/img/costureza.png" alt=""></a>
 </footer>
