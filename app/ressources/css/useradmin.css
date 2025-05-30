@@ -1,0 +1,41 @@
+.container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 60px;
+}
+.container .content{
+    text-align: center;
+}
+.container .content h3{
+    font-size: 2.5rem;
+    color: var(--letra);
+}
+.container .content h3 span{
+    background: var(--rosa);
+    color: var(--branco);
+    border-radius: .5rem;
+    padding: 0 15px;
+}
+.container .content h1{
+    font-size: 3.5rem;
+    color: var(--letra);
+}
+.container .content h1 span{
+    color: var(--rosa);
+}
+.container .content p{
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 1.8rem 0;
+    border-top: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
