@@ -1,5 +1,10 @@
 <?php
 include("/laragon/www/loginadminuser/api/config.php");
+session_start();
+if(!isset($_SESSION['admin_name'])){
+    header('Location?login.php');
+    exit;
+}
 
 ?>
 
@@ -22,7 +27,7 @@ include("/laragon/www/loginadminuser/api/config.php");
 <div class="container">
     <div class="content">
         <h3>Olá, <span>admin</span></h3>
-        <h1>Bem Vindo <span></span></h1>
+        <h1>Bem Vindo <span><?php echo $_SESSION['admin_name']?></span></h1>
         <p>Está é a página do administrador</p>
         <a href="index.php" class="btn">Login</a>
         <a href="cadastro.php" class="btn">Cadastro</a>

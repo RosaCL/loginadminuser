@@ -17,32 +17,32 @@ include("/laragon/www/loginadminuser/api/logic.php");
 </head>
 
 <body>
-<div class="form-container">
-                <form action="" method="post">
-                <h3>Cadastre-se agora</h3>
-                <?php
-                if(isset($error)){
-                    foreach($error as $error){
-                        echo '<span class="error_msg">' .$error. '</span>';
-                    };
-                };
-                ?>
-                <input type="text" name="nome" placeholder="Digite seu nome completo" required>
-                <input type="email" name="email" placeholder="Digite seu e-mail" required>
-                <input type="text" name="username" placeholder="Digite seu username" required>
-                <input type="password" name="senha" placeholder="Digite sua senha" required>
-                <input type="password" name="csenha" placeholder="Confirme sua senha" required>
-                <select name="user-type" id="">
-                    <option value="user">USER</option>
-                    <option value="admin">ADMIN</option>
-                </select>
-                <input type="submit" name="submit" value="Cadastre agora" class="btn">
-                <p>Já tem uma conta? <a href="login.php">Faça seu login</a></p>
-            </form>
-</div>
-<footer class="footer">
-    <a target="_blank" href="https://github.com/RosaCL"><img src="./ressources/img/costureza.png" alt=""></a>
-</footer>
+    <div class="form-container">
+        <form method="post">
+            <h3>Cadastre-se agora</h3>
+            <?php
+                if (isset($error)) {
+                    foreach ($error as $errorMessage) { 
+                        echo '<span class="error_msg">' . $errorMessage . '</span>';
+                    }
+                }
+            ?>
+            <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+            <input type="text" name="username" placeholder="Digite seu username" required>
+            <input type="password" name="senha" placeholder="Digite sua senha" required>
+            <input type="password" name="csenha" placeholder="Confirme sua senha" required>
+            <select name="user-type" id="">
+                <option value="user">USER</option>
+                <option value="admin">ADMIN</option>
+            </select>
+            <input type="submit" name="submit" value="Cadastre agora" class="btn">
+            <p>Já tem uma conta? <a href="login.php">Faça seu login</a></p>
+        </form>
+    </div>
+    <footer class="footer">
+        <a target="_blank" href="https://github.com/RosaCL"><img src="./ressources/img/costureza.png" alt=""></a>
+    </footer>
 
     <script src="./ressources/js/script.js"></script>
 </body>

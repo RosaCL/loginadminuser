@@ -2,28 +2,38 @@
 include("/laragon/www/conexaolocal/api/config.php");
 
 session_start();
-if (isset($_POST['submit'])) {
-    $name = $_POST['nome'];
-    $username = $_POST['username']; // Corrigido de '$username' para 'username'
+
+// Verifica se é um submit de registro
+if (isset($_POST['submit']) && isset($_POST['nome'])) {
+    // Lógica de registro
+    $nome = $_POST['nome'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
-    $senha = md5($_POST['senha']);
+    $senha = md5($_POST['senha']); 
     $csenha = md5($_POST['csenha']);
     $user_type = $_POST['user_type'];
-
-    // Usando prepared statement para SELECT
+    
+    // ... resto do código de registro
+} 
+// Verifica se é um submit de login
+elseif (isset($_POST['submit'])) {
+    // Lógica de login
+    $username = $_POST['username'];
+    $senha = md5($_POST['senha']);
+    
     $stmt = $pdo->prepare("SELECT * FROM usuario WHERE username = :username AND senha = :senha");
     $stmt->execute(['username' => $username, 'senha' => $senha]);
-    $row = $stmt->fetch(); // Pega a primeira linha de resultado
-
-    if ($row) { // Se uma linha foi encontrada
+    $row = $stmt->fetch();
+    
+    if ($row) {
         if ($row['user_type'] == 'admin') {
             $_SESSION['admin_name'] = $row['nome'];
             header('Location: admin_login.php');
-            exit(); // É importante usar exit() após header()
+            exit(); 
         } elseif ($row['user_type'] == 'user') {
             $_SESSION['user_name'] = $row['nome'];
             header('Location: user_login.php');
-            exit(); // É importante usar exit() após header()
+            exit();
         }
     } else {
         $error[] = 'Username ou senha incorreta';
@@ -48,13 +58,13 @@ if (isset($_POST['submit'])) {
         <div class="form-container">
             <form action="" method="post">
                 <h3>Login</h3>  
-                <?php
-                if(isset($error)){
-                    foreach($error as $error){
-                        echo '<span class="error_msg">' .$error. '</span>';
-                    };
-                };
-                ?>              
+            <?php
+                if (isset($error)) {
+                    foreach ($error as $errorMessage) { 
+                        echo '<span class="error_msg">' . $errorMessage . '</span>';
+                    }
+                }
+            ?>           
                 <input type="text" name="username" placeholder="Digite seu username" required>
                 <input type="password" name="senha" placeholder="Digite sua senha" required>                
                 <input type="submit" name="submit" value="Enviar" class="btn">
